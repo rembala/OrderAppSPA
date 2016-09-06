@@ -15,6 +15,7 @@
         $scope.selectCountryFn = selectCountryFn;
         $scope.selectCustomerFn = selectCustomerFn;
         $scope.AddNewOrder = AddNewOrder;
+        $scope.DisabledButton = DisabledButton;
 
         function AddNewOrder() {
             apiService.post("api/Orders/add",
@@ -22,10 +23,15 @@
                    Products: $scope.Products,
                    CountryId: $scope.CountryId,
                    ClientId: $scope.ClientId,
-                   OrderNo: $scope.order.OrderNo, 
+                   OrderNo: $scope.order.OrderNo,
                    PlannedDate: $scope.order.PlannedDate
                }
             , OrderLoadedCompleted, Orderfailure)
+        }
+
+        function DisabledButton() {
+            return $scope.addOrderForm.$valid == true &&
+                $scope.Products.length > 0;
         }
 
         function OrderLoadedCompleted(result) {
@@ -39,6 +45,7 @@
         function selectProductFun($item) {
             if ($item) {
                 $scope.selectedProduct = $item.originalObject;
+                $scope.addOrderForm.$setPristine()
             } else {
                 $scope.selectedProduct = null;
             }
@@ -63,7 +70,7 @@
         function addProductToOrder() {
             $scope.Products.push($scope.selectedProduct);
             $scope.selectedProduct = null;
-            $scope.$broadcast('angucomplete-alt:clearInput');
+
         }
 
     }

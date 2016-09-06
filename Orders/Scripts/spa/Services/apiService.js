@@ -22,6 +22,7 @@
                         .then(function (result) {
                             success(result);
                         }, function (error) {
+                            console.log(error);
                             //if (error.status == '401') {
                             //    notificationService.displayError("authentication required");
                             //    $rootScope.previousState = $location.path();

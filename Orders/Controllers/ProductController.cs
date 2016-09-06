@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Orders.Controllers
@@ -45,11 +46,13 @@ namespace Orders.Controllers
                                           join prt in this._productTypeRepository.GetAll() on pr.ProductTypeID equals prt.ProductTypeID
                                           select new ProductViewModel
                                               (
-                                              pr.ProductID,
-                                              pr.ProductName,
-                                              prt.ProductTypeName,
-                                              pr.CreatetionDate
-                                              )).ToList();
+                                              )
+                                              {
+                                                  CreationDate = pr.CreatetionDate,
+                                                  ProductId = pr.ProductID,
+                                                  ProductName = pr.ProductName,
+                                                  ProductTypeName = prt.ProductTypeName,
+                                              }).ToList();
 
                      response = this.Request.CreateResponse<IEnumerable<ProductViewModel>>(HttpStatusCode.OK, ProductResult);
                      return response;
@@ -71,6 +74,28 @@ namespace Orders.Controllers
                      else
                          ProductTypeList = this._productTypeRepository.GetAll().ToList();
                      response = this.Request.CreateResponse<IEnumerable<ProductType>>(HttpStatusCode.OK, ProductTypeList);
+                     return response;
+                 });
+        }
+        [HttpPost]
+        [Route("add")]
+        public HttpResponseMessage Add(HttpRequestMessage request, ProductViewModel productViewModel)
+        {
+            this._entityTypes = new List<Type>() { typeof(Product) };
+            return this.CreateHttpResponse(request, this._entityTypes,
+                 () =>
+                 {
+                     HttpResponseMessage response = null;
+                     this._productRepository.Add(new Product()
+                     {
+                         CreatetionDate = DateTime.Now,
+                         IsActive = true,
+                         ProductName = productViewModel.ProductName,
+                           ProductTypeID = productViewModel.ProductType.ProductTypeID
+                     });
+                     this._unitOfWork.Commit();
+                     response = this.Request.CreateResponse(HttpStatusCode.Moved);
+                     response.Headers.Location = new Uri(@"http://localhost:" + HttpContext.Current.Request.Url.Port + "/api/Product");
                      return response;
                  });
         }

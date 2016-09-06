@@ -6,7 +6,10 @@
     function productCtrl($scope, apiService, notificationService, $modal, $location) {
         $scope.loadProductData = loadProductData;
         $scope.Products = [];
-
+        $scope.AddNewProduct = AddNewProduct;
+        $scope.SelectedProductType = null;
+        $scope.product = {};
+        $scope.selectProductTypeFn = selectProductTypeFn;
         function loadProductData() {
             apiService.get('api/Product', null, ProductDataSuccesfull, ProductDataFailure);
         }
@@ -16,14 +19,27 @@
         }
 
         function ProductDataFailure() {
+            notificationService.displaySuccess("Įvyko klaida");
+        }
 
+        function AddNewProduct() {
+            apiService.post('api/Product/add', { ProductName: $scope.product.ProductName, ProductType: $scope.SelectedProductType }
+                , ProductAddedSuccesfull, ProductAddedFailure);
+        }
+        function ProductAddedSuccesfull(result) {
+            $scope.Products = result.data;
+            notificationService.displaySuccess("Produktas sėkmingai sukurtas");
+            $scope.$broadcast('angucomplete-alt:clearInput');
+        }
+        function ProductAddedFailure() {
+            notificationService.displaySuccess("Įvyko klaida");
         }
 
         function selectProductTypeFn($item) {
             if ($item) {
-                $scope.CountryId = $item.originalObject.CountryID;
+                $scope.SelectedProductType = $item.originalObject;      
             } else {
-                $scope.CountryId = null;
+                $scope.SelectedProductType = null;
             }
         }
         loadProductData();
