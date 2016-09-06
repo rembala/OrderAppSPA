@@ -31,11 +31,8 @@ namespace Orders.Infrastructure.Core
         protected IEntityBaseRepository<Product> _productRepository;
         protected IEntityBaseRepository<Status> _statusRepository;
         protected IEntityBaseRepository<User> _userRepository;
+        protected IEntityBaseRepository<ProductType> _productTypeRepository;
         #endregion
-        public ApiControllerBase()
-        {
-
-        }
         //Kad butu single requestas
         protected IUnitOfWork _unitOfWork;
 
@@ -74,6 +71,10 @@ namespace Orders.Infrastructure.Core
         {
             if (entities != null)
             {
+                if (entities.Any(e => e.FullName == typeof(ProductType).FullName))
+                {
+                    this._productTypeRepository = this._dataRepositoryFactory.GetDataRepository<ProductType>(this.HttpRequestMessage);
+                }
                 if (entities.Any(e => e.FullName == typeof(Order).FullName))
                 {
                     this._orderRepository = this._dataRepositoryFactory.GetDataRepository<Order>(this.HttpRequestMessage);

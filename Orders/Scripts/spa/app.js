@@ -15,6 +15,9 @@
         }).when("/order/create", {
             templateUrl: "scripts/spa/Order/createOrder.html",
             controller: "createOrderCtrl"
+        }).when("/Products", {
+            templateUrl: "scripts/spa/Product/Product.html",
+            controller: "productCtrl"
         })
         .otherwise({ redirectTo: "/" })
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrdersEntities.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,26 +9,17 @@ namespace Orders.Models
 {
     public class ProductViewModel : IValidatableObject
     {
-        public ProductViewModel(int productId, string productName, string productTypeName,
-            DateTime creationDate, int OrderNo, string FullName)
-        {
-            this.ProductId = productId;
-            this.ProductName = productName;
-            this.ProductTypeName = productTypeName;
-            this.CreationDate = creationDate;
-            this.OrderNo = OrderNo;
-            this.UserFullName = FullName;
-        }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductTypeName { get; set; }
         public string UserFullName { get; set; }
+        public ProductType ProductType { get; set; }
         public DateTime CreationDate { get; set; }
         public int OrderNo { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            throw new NotImplementedException();
+            return new List<ValidationResult>();
         }
     }
 }
