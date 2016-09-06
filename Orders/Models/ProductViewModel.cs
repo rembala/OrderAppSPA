@@ -8,15 +8,12 @@ namespace Orders.Models
 {
     public class ProductViewModel : IValidatableObject
     {
-        public ProductViewModel(int productId, string productName, string productTypeName,
-            DateTime creationDate, int OrderNo, string FullName)
+        public ProductViewModel(int productId, string productName, string productTypeName, DateTime creationDate)
         {
             this.ProductId = productId;
             this.ProductName = productName;
             this.ProductTypeName = productTypeName;
             this.CreationDate = creationDate;
-            this.OrderNo = OrderNo;
-            this.UserFullName = FullName;
         }
         public int ProductId { get; set; }
         public string ProductName { get; set; }

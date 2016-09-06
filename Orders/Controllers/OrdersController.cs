@@ -41,7 +41,7 @@ namespace Orders.Controllers
                 () =>
                 {
                     HttpResponseMessage response = null;
-                    var OrderViewModelList = new ProcedureExecution().OrderProductGet(null);
+                    var OrderViewModelList = new StoreProcedures().OrderProductGet(null);
 
                     #region Kadangi daroma su code first tai su linq, bet optimaliau manau butu per procedura
                     //var OrderViewModelList = (from ord in Orders
@@ -89,7 +89,7 @@ namespace Orders.Controllers
                 {
                     HttpResponseMessage ResponseMessage = null;
 
-                    var OrderViewModelList = new ProcedureExecution().ProductOrderGet(OrderId);
+                    var OrderViewModelList = new StoreProcedures().ProductOrderGet(OrderId);
 
                     ResponseMessage = this.Request.CreateResponse<IEnumerable<OrderProductViewModel>>(HttpStatusCode.OK, OrderViewModelList);
                     return ResponseMessage;
@@ -108,7 +108,7 @@ namespace Orders.Controllers
                     int PageSize = pageSize.HasValue ? (int)pageSize : 0;
                     HttpResponseMessage ResponseMessage = null;
                     List<OrderViewModel> OrderItems = null;
-                    var TotalOrderItems = new ProcedureExecution().OrderProductGet(Filter);
+                    var TotalOrderItems = new StoreProcedures().OrderProductGet(Filter);
 
                     OrderItems = TotalOrderItems.Skip(CurrentPage * PageSize)
                                                     .Take(PageSize).ToList();
@@ -138,7 +138,7 @@ namespace Orders.Controllers
                    () =>
                    {
                        HttpResponseMessage response = null;
-                       int OrderId = Convert.ToInt32(new ProcedureExecution().Order_Save(null, DateTime.Now, 1, order.OrderNo, 2, order.CountryId, order.ClientId, order.PlannedDate, true));
+                       int OrderId = Convert.ToInt32(new StoreProcedures().Order_Save(null, DateTime.Now, 1, order.OrderNo, 2, order.CountryId, order.ClientId, order.PlannedDate, true));
                        foreach (Product item in order.Products)
                        {
                            this._orderProductRepository.Add(new OrderProduct()
@@ -149,7 +149,7 @@ namespace Orders.Controllers
                            });
                        }
                        this._unitOfWork.Commit();
-                       var OrderViewModelList = new ProcedureExecution().OrderProductGet(null);
+                       var OrderViewModelList = new StoreProcedures().OrderProductGet(null);
                        return response = this.Request.CreateResponse<IEnumerable<OrderViewModel>>(HttpStatusCode.OK, OrderViewModelList);
                    });
         }

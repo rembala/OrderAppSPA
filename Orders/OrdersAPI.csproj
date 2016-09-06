@@ -161,7 +161,7 @@
     <Compile Include="Infrastructure\Extensions\ChefForNullValues.cs" />
     <Compile Include="Infrastructure\Extensions\EntitiesExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\RequestMessageExtensions.cs" />
-    <Compile Include="Infrastructure\Extensions\StoreProcedureExecutions\OrderProductsGet.cs" />
+    <Compile Include="Infrastructure\Extensions\StoreProcedureExecutions\StoreProcedures.cs" />
     <Compile Include="Infrastructure\Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mappings\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infrastructure\Validators\OrderViewModelValidator.cs" />
@@ -211,6 +211,8 @@
     <Content Include="Scripts\spa\Order\orderCtrl.js" />
     <Content Include="Scripts\spa\Order\orderProductModalCtrl.js" />
     <Content Include="Scripts\spa\Order\orderProductsModal.html" />
+    <Content Include="Scripts\spa\Product\Product.html" />
+    <Content Include="Scripts\spa\Product\productCtrl.js" />
     <Content Include="Scripts\spa\Services\apiService.js" />
     <Content Include="Scripts\spa\Services\notificationService.js" />
     <Content Include="Scripts\vendors\angucomplete-alt.min.js" />
@@ -231,9 +233,7 @@
     <Content Include="Scripts\vendors\toastr.js" />
     <Content Include="Scripts\vendors\toastr.min.js" />
     <Content Include="Scripts\vendors\ui-bootstrap-tpls-0.13.1.js" />
-    <Content Include="SQL\web.Order_Save.sql" />
-    <Content Include="SQL\web.ProductOrder_Get.sql" />
-    <Content Include="SQL\web.OrderProduct_Get.sql" />
+    <Content Include="SQL\Script.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

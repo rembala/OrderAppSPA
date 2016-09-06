@@ -52,14 +52,14 @@ namespace OrdersData
             context.Country.Add(new Country() { CountryName = "Rusija" });
             context.Country.Add(new Country() { CountryName = "JAV" });
 
-            context.Product.Add(new Product() { ProductName = "BMW", IsActive = true, ProductTypeID = 3 });
-            context.Product.Add(new Product() { ProductName = "Mersedez", IsActive = true, ProductTypeID = 3 });
-            context.Product.Add(new Product() { ProductName = "Pegeout", IsActive = true, ProductTypeID = 3 });
-            context.Product.Add(new Product() { ProductName = "Iphone", IsActive = true, ProductTypeID = 4 });
-            context.Product.Add(new Product() { ProductName = "Samsung", IsActive = true, ProductTypeID = 4 });
-            context.Product.Add(new Product() { ProductName = "Acer PC", IsActive = true, ProductTypeID = 1 });
-            context.Product.Add(new Product() { ProductName = "Samsung PC", IsActive = true, ProductTypeID = 1 });
-            context.Product.Add(new Product() { ProductName = "Lego", IsActive = true, ProductTypeID = 2 });
+            context.Product.Add(new Product() { ProductName = "BMW", IsActive = true, ProductTypeID = 3, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Mersedez", IsActive = true, ProductTypeID = 3, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Pegeout", IsActive = true, ProductTypeID = 3, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Iphone", IsActive = true, ProductTypeID = 4, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Samsung", IsActive = true, ProductTypeID = 4, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Acer PC", IsActive = true, ProductTypeID = 1, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Samsung PC", IsActive = true, ProductTypeID = 1, CreatetionDate = DateTime.Now });
+            context.Product.Add(new Product() { ProductName = "Lego", IsActive = true, ProductTypeID = 2, CreatetionDate = DateTime.Now });
             for (int i = 0; i < GenerateOrders().Count(); i++)
             {
                 context.Order.Add(GenerateOrders()[i]);

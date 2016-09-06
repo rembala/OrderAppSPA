@@ -13,6 +13,7 @@ namespace OrdersEntities.Entities
         [Key]
         public int ProductID { get; set; }
         public string ProductName { get; set; }
+        public DateTime CreatetionDate { get; set; }
         public bool IsActive { get; set; }
         public int ProductTypeID { get; set; }
         public virtual ProductType ProductType { get; set; }
