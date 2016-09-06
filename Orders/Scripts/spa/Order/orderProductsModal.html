@@ -1,0 +1,32 @@
+﻿<div class="panel panel-panel">
+    <div class="panel-heading">
+        Užsakymo numeris : <strong>{{OrderProducts[0].OrderNo}}</strong>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Produkto pavadinimas</th>
+                    <th>Produkto tipo pavadinimas</th>
+                    <th>Sukūrimo data</th>
+                    <th>Vartotojas </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in OrderProducts">
+                    <td>{{product.ProductName}}</td>
+                    <td>{{product.ProductTypeName}}</td>
+                    <td>{{product.CreationDate | date :format : 'yyyy-MM-dd'}}</td>
+                    <td>{{product.UserFullName}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        <div>Viso užsakytų produktų <strong>{{OrderProducts.length}}</strong></div>
+    </div>
+</div>

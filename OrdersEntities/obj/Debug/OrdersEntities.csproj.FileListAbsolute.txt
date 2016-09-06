@@ -1,0 +1,10 @@
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\OrdersEntities.dll
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\OrdersEntities.pdb
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\obj\Debug\OrdersEntities.dll
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\obj\Debug\OrdersEntities.pdb
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\OrdersEntities.dll.config
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\EntityFramework.dll
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\EntityFramework.xml
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ARTA\Desktop\Orders\OrdersEntities\obj\Debug\OrdersEntities.csprojResolveAssemblyReference.cache
