@@ -96,6 +96,14 @@ namespace Orders.Controllers
                 }
               );
         }
+        /// <summary>
+        /// Puslapiavimas, filrtavimas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="Filter"></param>
+        /// <returns></returns>
         [Route("{page:int=0}/{pageSize=3}/{filter?}")]
         public HttpResponseMessage Get(HttpRequestMessage request, int? page, int? pageSize, string Filter = null)
         {
@@ -127,7 +135,12 @@ namespace Orders.Controllers
                 }
   );
         }
-
+        /// <summary>
+        /// Naujo uzsakymo sukurimas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="order"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, OrderViewModel order)

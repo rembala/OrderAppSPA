@@ -32,16 +32,6 @@ namespace OrdersData.Repository
             DbFactory = dbFactory;
         }
         #endregion
-
-        public virtual IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
-        {
-            IQueryable<T> query = DbContext.Set<T>();
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-            return query;
-        }
         public virtual IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
             return DbContext.Set<T>().Where(predicate);

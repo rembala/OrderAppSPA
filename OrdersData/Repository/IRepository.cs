@@ -10,7 +10,6 @@ namespace OrdersData.Repository
 {
     public interface IEntityBaseRepository<T> where T : class,  new() 
     {
-        IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] IncludedProperties);
         IQueryable<T> GetAll(string IncludeParams = null);
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
         void Add(T entity);
