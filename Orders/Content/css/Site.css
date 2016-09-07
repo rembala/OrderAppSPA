@@ -33,8 +33,8 @@ ul.pagination > li {
 .angucomplete-dropdown {
     border-color: #ececec;
     border-width: 1px;
-    max-height:25%;
-    overflow-x:auto;
+    max-height: 25%;
+    overflow-x: auto;
     border-style: solid;
     border-radius: 2px;
     width: 250px;
@@ -65,27 +65,31 @@ ul.pagination > li {
     background-color: lightblue;
     color: #ffffff;
 }
-#productsTable{
-    max-height:50%;
-    overflow-x:auto;
-    overflow:auto;
-    height:100%;
-}
-#ProductSidebar{
-    padding:5px;
+
+#productsTable, #countriesTable {
+    max-height: 50%;
+    overflow-x: auto;
+    overflow: auto;
+    height: 100%;
 }
 
-#productCreateionLeftSide{
-    max-width:40%;
-    min-width:40%;
-    float:left;
-    height:100%;
-    padding-right:5px;
+#ProductSidebar, #CountrySidebar {
+    padding: 5px;
 }
+
+#productCreateionLeftSide, #countrysCreationLeftSide {
+    max-width: 40%;
+    min-width: 40%;
+    float: left;
+    height: 100%;
+    padding-right: 5px;
+}
+
 .panel-borderless {
-  border: 0 !important;
-  box-shadow: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
 }
-.form input.ng-invalid-autocomplete-required{
+
+.form input.ng-invalid-autocomplete-required {
     border: red;
 }

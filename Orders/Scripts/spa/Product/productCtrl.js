@@ -11,12 +11,15 @@
         $scope.product = {};
         $scope.DissableButton = DissableButton;
         $scope.selectProductTypeFn = selectProductTypeFn;
+        $scope.loadingProducts = true;
+
         function loadProductData() {
             apiService.get('api/Product', null, ProductDataSuccesfull, ProductDataFailure);
         }
 
         function ProductDataSuccesfull(result) {
             $scope.Products = result.data;
+            $scope.loadingProducts = false;
         }
 
         function ProductDataFailure() {
@@ -24,6 +27,7 @@
         }
 
         function AddNewProduct() {
+            $scope.loadingProducts = true;
             apiService.post('api/Product/add', { ProductName: $scope.product.ProductName, ProductType: $scope.SelectedProductType }
                 , ProductAddedSuccesfull, ProductAddedFailure);
         }
@@ -33,6 +37,7 @@
             $scope.$broadcast('angucomplete-alt:clearInput');
             $scope.ProductName = null;
             $scope.addProductForm.$setValidity('ProductName', true);
+            $scope.loadingProducts = false;
         }
         function ProductAddedFailure() {
             notificationService.displaySuccess("Įvyko klaida");

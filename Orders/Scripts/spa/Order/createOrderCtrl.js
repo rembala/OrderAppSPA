@@ -35,7 +35,7 @@
         }
 
         function OrderLoadedCompleted(result) {
-            notificationService.displaySuccess("Sukurtas užsakymas su numeriu" + result.data.OrderNo);
+            notificationService.displaySuccess("Sukurtas užsakymas ");
             $location.path('/');
         }
         function Orderfailure() {
