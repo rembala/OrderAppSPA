@@ -20,7 +20,13 @@ namespace Orders.Controllers
         {
 
         }
-        [Route("filter")]
+        /// <summary>
+        /// Gaunamas produktas arba filtruojamas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        [Route("search")]
         public HttpResponseMessage Get(HttpRequestMessage request, string filter = null)
         {
             this._entityTypes = new List<Type>() { typeof(Product) };
@@ -35,6 +41,11 @@ namespace Orders.Controllers
                      return response;
                  });
         }
+        /// <summary>
+        /// Gaunamas produktas ir jo tipas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             this._entityTypes = new List<Type>() { typeof(Product), typeof(ProductType) };
@@ -58,7 +69,12 @@ namespace Orders.Controllers
                      return response;
                  });
         }
-
+        /// <summary>
+        /// Produkto tipo ieskojimas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ProductTypeChoose")]
         public HttpResponseMessage ProductTypeFilter(HttpRequestMessage request, string filter = null)
@@ -77,6 +93,12 @@ namespace Orders.Controllers
                      return response;
                  });
         }
+        /// <summary>
+        /// Naujo produkto pridejimas
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="productViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, ProductViewModel productViewModel)
@@ -91,7 +113,7 @@ namespace Orders.Controllers
                          CreatetionDate = DateTime.Now,
                          IsActive = true,
                          ProductName = productViewModel.ProductName,
-                           ProductTypeID = productViewModel.ProductType.ProductTypeID
+                         ProductTypeID = productViewModel.ProductType.ProductTypeID
                      });
                      this._unitOfWork.Commit();
                      response = this.Request.CreateResponse(HttpStatusCode.Moved);

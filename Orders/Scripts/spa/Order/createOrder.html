@@ -14,7 +14,7 @@
                                   pause="200"
                                   selected-object="selectProductFun"
                                   input-changed="selectionChanged"
-                                  remote-url="/api/Product?filter="
+                                  remote-url="/api/Product/search?filter="
                                   remote-url-data-field=""
                                   title-field="ProductName"
                                   description-field=""
@@ -100,7 +100,7 @@
                                 {{product.ProductName}}
                             </td>
                             <td>
-                                {{product.ProductType.ProductTypeName}}
+                                {{product.ProductTypeName}}
                             </td>
                         </tr>
                     </tbody>

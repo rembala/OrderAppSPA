@@ -1,19 +1,19 @@
-﻿<div id="CountrySidebar">
+﻿<div id="ClientSidebar">
     <div class="panel panel-info">
         <div class="panel panel-heading">
-            <h2 class="text-center">Šalies pridėjimas/atvaizdavimas</h2>
+            <h2 class="text-center">Cliento pridėjimas/atvaizdavimas</h2>
         </div>
         <div class="panel panel-body">
-            <div id="countrysCreationLeftSide">
+            <div id="clientCreationLeftSide">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        Naujos šalies pildymas
+                        Naujo kliento pildymas
                     </div>
-                    <form role="form" novalidate angular-validator name="addcountryForm" angular-validator-submit="AddNewcountry()">
+                    <form role="form" novalidate angular-validator name="addKlientForm" angular-validator-submit="AddNewclient()">
                         <div class="panel panel-body">
                             <div class="form-group">
-                                <input type="text" ng-model="Country.name" class="form-control" name="countryName" id="countryName" placeholder="Įveskite šalies pavadinimą" required
-                                       validate-on="blur" required-message="'Šalies pavadinimas yra būtinas'" />
+                                <input type="text" ng-model="Client.name" class="form-control" name="clientName" id="clientName" placeholder="Įveskite kliento pavadinimą" required
+                                       validate-on="blur" required-message="'Kliento pavadinimas yra būtinas'" />
                             </div>
                         </div>
                         <div class="panel panel-bottom clearfix">
@@ -24,33 +24,33 @@
                     </form>
                 </div>
             </div>
-            <div ng-if="Loadingcountries" style="text-align:center;">
+            <div ng-if="Loadingclients" style="text-align:center;">
                 <i class="fa fa-refresh fa-5x fa-spin"></i>
                 <label class="label label-primary">Kraunasi ..</label>
             </div>
-            <div id="countriesTable" ng-if="!Loadingcountries">
+            <div id="clientsTable" ng-if="!Loadingclients">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center">Šalių sąrašas</h3>
+                        <h3 class="panel-title text-center">Klientų sąrašas</h3>
                     </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <td>Šalies pavadinimas</td>
+                                    <td>Kliento pavadinimas</td>
                                     <td>Redagavimas</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="product in countries">
-                                    <td>{{product.CountryName}}</td>
+                                <tr ng-repeat="client in clients">
+                                    <td>{{client.ClientName}}</td>
                                     <td><a href="">Redaguoti</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="panel panel-bottom">
-                        <div class="text-center"> Viso : <b>{{countries.length}}</b></div>
+                        <div class="text-center"> Viso : <b>{{clients.length}}</b></div>
                     </div>
                 </div>
             </div>

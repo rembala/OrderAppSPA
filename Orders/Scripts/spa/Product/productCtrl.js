@@ -14,7 +14,7 @@
         $scope.loadingProducts = true;
 
         function loadProductData() {
-            apiService.get('api/Product', null, ProductDataSuccesfull, ProductDataFailure);
+            apiService.get('api/Product', '', ProductDataSuccesfull, ProductDataFailure);
         }
 
         function ProductDataSuccesfull(result) {

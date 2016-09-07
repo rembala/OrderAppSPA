@@ -66,18 +66,18 @@ ul.pagination > li {
     color: #ffffff;
 }
 
-#productsTable, #countriesTable {
+#productsTable, #countriesTable, #clientsTable {
     max-height: 50%;
     overflow-x: auto;
-    overflow: auto;
+    /*overflow: auto;*/
     height: 100%;
 }
 
-#ProductSidebar, #CountrySidebar {
+#ProductSidebar, #CountrySidebar, #ClientSidebar {
     padding: 5px;
 }
 
-#productCreateionLeftSide, #countrysCreationLeftSide {
+#productCreateionLeftSide, #countrysCreationLeftSide, #clientCreationLeftSide {
     max-width: 40%;
     min-width: 40%;
     float: left;

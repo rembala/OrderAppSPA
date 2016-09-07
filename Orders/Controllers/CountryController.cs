@@ -20,6 +20,12 @@ namespace Orders.Controllers
         {
 
         }
+        /// <summary>
+        /// Gaunamos šalys
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public HttpResponseMessage Get(HttpRequestMessage request, string filter = null)
         {
             this._entityTypes = new List<Type>() { typeof(Country) };
@@ -37,6 +43,12 @@ namespace Orders.Controllers
                      return response;
                  });
         }
+        /// <summary>
+        /// Pridedama nauja salis
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="countryViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, CountryViewModel countryViewModel)
