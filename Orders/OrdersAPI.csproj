@@ -192,6 +192,7 @@
     <Content Include="Content\fancybox\fancybox_sprite.png" />
     <Content Include="Content\css\loading-bar.min.css" />
     <Content Include="Content\css\toastr.min.css" />
+    <Content Include="Content\TextFile1.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
