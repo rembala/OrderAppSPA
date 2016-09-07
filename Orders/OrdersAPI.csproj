@@ -165,6 +165,7 @@
     <Compile Include="Infrastructure\Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mappings\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infrastructure\Validators\OrderViewModelValidator.cs" />
+    <Compile Include="Models\CountryViewModel.cs" />
     <Compile Include="Models\OrderProductViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
@@ -195,6 +196,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\spa\app.js" />
+    <Content Include="Scripts\spa\Countries\countriesCtrl.js" />
+    <Content Include="Scripts\spa\Countries\countries.html" />
     <Content Include="Scripts\spa\Directives\datepickerjQueryUi.js" />
     <Content Include="Scripts\spa\Home\rootCtrl.js" />
     <Content Include="Scripts\spa\Layout\customPager.directive.js" />

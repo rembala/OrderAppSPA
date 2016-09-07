@@ -48,9 +48,14 @@
                         </div>
                     </form>
                 </div>
-
             </div>
-            <div id="productsTable">
+
+            <div ng-if="loadingProducts" style="text-align:center;">
+                <i class="fa fa-refresh fa-5x fa-spin"></i>
+                <label class="label label-primary">Kraunami ..</label>
+            </div>
+
+            <div id="productsTable" ng-if="!loadingProducts">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title text-center">Esami produktai</h3>
