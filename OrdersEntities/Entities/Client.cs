@@ -9,7 +9,6 @@ namespace OrdersEntities.Entities
 {
     public class Client
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ClientID { get; set; }
         public string ClientName { get; set; }
         public virtual List<Order> Orders { get; set; }

@@ -37,10 +37,10 @@ namespace OrdersData
             context.ProductType.Add(new ProductType() { ProductTypeID = 3, ProductTypeName = "Masinos" });
             context.ProductType.Add(new ProductType() { ProductTypeID = 4, ProductTypeName = "Kita technika" });
 
-            context.Client.Add(new Client() { ClientID = 1, ClientName = "Daugpils" });
-            context.Client.Add(new Client() { ClientID = 2, ClientName = "MoscowCity" });
-            context.Client.Add(new Client() { ClientID = 3, ClientName = "VilniuCity" });
-            context.Client.Add(new Client() { ClientID = 4, ClientName = "Pentagon" });
+            context.Client.Add(new Client() { ClientName = "Daugpils" });
+            context.Client.Add(new Client() {  ClientName = "MoscowCity" });
+            context.Client.Add(new Client() { ClientName = "VilniuCity" });
+            context.Client.Add(new Client() {  ClientName = "Pentagon" });
 
             context.Status.Add(new Status() { StatusID = 1, StatusName = "Pateikta" });
             context.Status.Add(new Status() { StatusID = 2, StatusName = "Vykdoma" });

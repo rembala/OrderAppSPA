@@ -54,6 +54,10 @@ namespace Orders.Infrastructure.Core
             }
             catch (SqlException sqlE)
             {
+                if (sqlE.Message.Contains("Could not find stored procedure"))
+                {
+                    throw new Exception("Reikia executinti proceduru skriptus sql kataloge !");
+                }
                 LogError(sqlE);
             }
             catch (DbUpdateException ex)

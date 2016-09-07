@@ -40,8 +40,9 @@ namespace Orders
                         "~/Scripts/spa/Order/createOrderCtrl.js",
                        "~/Scripts/spa/Directives/datepickerjQueryUi.js",
                        "~/Scripts/spa/Product/productCtrl.js",
-                       "~/Scripts/spa/Countries/countriesCtrl.js"
-                        ));
+                       "~/Scripts/spa/Countries/countriesCtrl.js",
+                       "~/Scripts/spa/Client/clientCtrl.js"
+                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/bootstrap.min.css",
