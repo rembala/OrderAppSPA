@@ -9,6 +9,7 @@
         $scope.AddNewProduct = AddNewProduct;
         $scope.SelectedProductType = null;
         $scope.product = {};
+        $scope.DissableButton = DissableButton;
         $scope.selectProductTypeFn = selectProductTypeFn;
         function loadProductData() {
             apiService.get('api/Product', null, ProductDataSuccesfull, ProductDataFailure);
@@ -30,14 +31,20 @@
             $scope.Products = result.data;
             notificationService.displaySuccess("Produktas sėkmingai sukurtas");
             $scope.$broadcast('angucomplete-alt:clearInput');
+            $scope.ProductName = null;
+            $scope.addProductForm.$setValidity('ProductName', true);
         }
         function ProductAddedFailure() {
             notificationService.displaySuccess("Įvyko klaida");
         }
 
+        function DissableButton() {
+            return ( $scope.SelectedProductType == null);
+        }
+
         function selectProductTypeFn($item) {
             if ($item) {
-                $scope.SelectedProductType = $item.originalObject;      
+                $scope.SelectedProductType = $item.originalObject;
             } else {
                 $scope.SelectedProductType = null;
             }

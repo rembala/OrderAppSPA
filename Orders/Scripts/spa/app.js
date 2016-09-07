@@ -18,6 +18,9 @@
         }).when("/Products", {
             templateUrl: "scripts/spa/Product/Product.html",
             controller: "productCtrl"
+        }).when("/Countries", {
+            templateUrl: "scripts/spa/Countries/countries.html",
+            controller: "countriesCtrl"
         })
         .otherwise({ redirectTo: "/" })
     }

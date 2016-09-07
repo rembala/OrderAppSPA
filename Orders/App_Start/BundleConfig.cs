@@ -39,7 +39,8 @@ namespace Orders
                         "~/Scripts/spa/Layout/customPager.directive.js",
                         "~/Scripts/spa/Order/createOrderCtrl.js",
                        "~/Scripts/spa/Directives/datepickerjQueryUi.js",
-                       "~/Scripts/spa/Product/productCtrl.js"
+                       "~/Scripts/spa/Product/productCtrl.js",
+                       "~/Scripts/spa/Countries/countriesCtrl.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

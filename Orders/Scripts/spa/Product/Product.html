@@ -5,24 +5,26 @@
         </div>
         <div class="panel panel-body">
             <div id="productCreateionLeftSide">
-                <form role="form" novalidate angular-validator name="form.addOrder" angular-validator-submit="AddNewProduct()">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Naujo produkto pildymas
-                        </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Naujo produkto pildymas
+                    </div>
+                    <form role="form" novalidate angular-validator name="addProductForm" angular-validator-submit="AddNewProduct()">
                         <div class="panel panel-body">
+
                             <div class="form-group">
                                 <label class="control-label">
                                     Produkto pavadinimas
                                 </label>
-                                <input type="text" ng-model="product.ProductName" class="form-control" name="form.ProductName" id="ProductName" placeholder="Įveskite produkto pavadinimą" required
-                                       required-message="Produkto pavadinimas yra būtinas" />
+                                <input type="text" ng-model="product.ProductName" class="form-control" name="ProductName" id="ProductName" placeholder="Įveskite produkto pavadinimą" required
+                                       validate-on="blur" required-message="'Produkto pavadinimas yra būtinas'" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">
                                     Produkto tipas
                                 </label>
-                                <angucomplete-alt id="members"
+                                <angucomplete-alt id="ProductInput"
                                                   placeholder="Pasirinkite produkt tipą"
                                                   pause="200"
                                                   selected-object="selectProductTypeFn"
@@ -34,19 +36,19 @@
                                                   input-class="form-control form-control-small"
                                                   match-class="red"
                                                   text-searching="Vyksta produkto tipo paieška"
-                                                  text-no-results="Atsiprašome, bet toks produkto tipas neegzistuoja" />
+                                                  text-no-results="Atsiprašome, bet toks produkto tipas neegzistuoja"
+                                                  field-required="true"
+                                                  innput-name="ProductTxt" />
                             </div>
-
                         </div>
                         <div class="panel panel-bottom clearfix">
                             <div class="pull-right" style="margin-right:5px;">
-                                <button type="submit" name="submit" id="submit" value="Kurti" class="btn btn-info">
-                                    Kurti
-                                </button>
+                                <input type="submit" name="submit" id="submit" value="kurti" ng-disabled="DissableButton()" class="btn btn-info pull-right">
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+
             </div>
             <div id="productsTable">
                 <div class="panel panel-info">
