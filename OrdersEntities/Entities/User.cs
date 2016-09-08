@@ -17,7 +17,7 @@ namespace OrdersEntities.Entities
         public string Salt { get; set; }
         public bool IsLocked { get; set; }
         public DateTime DateCreated { get; set; }
-        public List<UserRole> UserRole { get; set; }
+        public virtual List<UserRole> UserRole { get; set; }
         public User()
         {
             this.UserRole = new List<UserRole>();

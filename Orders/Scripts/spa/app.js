@@ -49,7 +49,7 @@
 
     function run($rootScope, $location, $cookieStore, $http) {
         console.log("app is started");
-        $rootScope.repository = $cookieStore.get('repository') || {};
+        //$rootScope.repository = $cookieStore.get('repository') || {};
         //if ($rootscope.repository.l) {
 
         //}

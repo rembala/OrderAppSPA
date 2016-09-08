@@ -2,9 +2,9 @@
 
     app.controller('registerCtrl', registerCtrl);
 
-    registerCtrl.$inject = ['$scope', 'membershipService', '$location', 'apiService', 'notificationService'];
+    registerCtrl.$inject = ['$scope', 'membershipService', '$location', 'apiService', 'notificationService', '$rootScope'];
 
-    function registerCtrl($scope, membershipService, $location, apiService, notificationService) {
+    function registerCtrl($scope, membershipService, $location, apiService, notificationService, $rootScope) {
         $scope.user = {};
         $scope.register = register;
         $scope.selectedRole = null;
@@ -32,7 +32,12 @@
                 membershipService.SaveCredentials($scope.user);
                 notificationService.displaySuccess('Sveiki, ' + $scope.user.UserName);
                 $scope.userData.displayUserInformation();
-                $location.path("/");
+                if ($rootScope.previousState) {
+                    $location.path($rootScope.previousState);
+                }
+                else {
+                    $location.path("/");
+                }
             }
             else {
                 notificationService.displayError("Nepavyko išsaugoti vartotoją");

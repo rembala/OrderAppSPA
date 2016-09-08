@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace Orders.Controllers
 {
+    [Authorize(Roles = "Adminas,Vartotojas")]
     [RoutePrefix("api/Product")]
     public class ProductController : ApiControllerBase
     {
@@ -26,6 +27,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="filter"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [Route("search")]
         public HttpResponseMessage Get(HttpRequestMessage request, string filter = null)
         {
@@ -99,6 +101,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="productViewModel"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Adminas")]
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, ProductViewModel productViewModel)

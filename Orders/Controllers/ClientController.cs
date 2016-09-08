@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace Orders.Controllers
 {
+    [Authorize(Roles = "Adminas,Vartotojas")]
     [RoutePrefix("api/Client")]
     public class ClientController : ApiControllerBase
     {
@@ -26,6 +27,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="filter"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         public HttpResponseMessage Get(HttpRequestMessage request, string filter = null)
         {
             this._entityTypes = new List<Type>() { typeof(Client) };
@@ -48,6 +50,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="ClientViewModel"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Adminas")]
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, ClientViewModel ClientViewModel)
