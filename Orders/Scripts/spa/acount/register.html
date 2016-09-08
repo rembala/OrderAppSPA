@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <form id="formRegistration" novalidate angular-validator name="userRegistrationForm" angular-validator-submit="register()">
+        <h3 class="form-signing-heading">
+            Registracija
+        </h3>
+        <div class="form-group">
+            <label>Pasirinkite rolė</label>
+            <select ng-model="selectedRole" class="form-control" name="roles" ng-options="role as role.RoleName for role in roles track by role.RoleID"></select>
+        </div>
+        <div class="form-group">
+            <label>
+                Vardas
+            </label>
+            <input type="text" ng-model="user.firstName" required valida-on="blur" name="firstName" class="form-control" placeholder="Įveskite varda"
+                   required-message="'Vardas yra būtinas'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Pavardė
+            </label>
+            <input type="text" ng-model="user.LastName" required valida-on="blur" name="LastName" class="form-control" placeholder="Įveskite pavardė"
+                   required-message="'Vartotojo pavardė yra būtina'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Slaptažodis
+            </label>
+            <input type="password" ng-model="user.password" class="form-control" name="password" required valida-on="blur" placeholder="Įveskite slaptažodį"
+                   required-message="'Vartotojo slaptažodis yra būtinas'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Elekr. paštas
+            </label>
+            <input type="email" ng-model="user.password" class="form-control"  required valida-on="blur" placeholder="Įveskite elektr. paštą"
+                   required-message="'Elektroninis paštas yra būtinas'" />
+        </div>
+        <button type="submit" class="btn btn-primary  pull-right"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register</button>
+    </form>
+</div>
+

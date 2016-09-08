@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orders.Infrastructure.MessageHandlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -9,10 +10,7 @@ namespace Orders
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
-            // Web API routes
-            //config.MessageHandlers.Add(new );
+            config.MessageHandlers.Add(new OrderRequestHandler());
 
             config.MapHttpAttributeRoutes();
 

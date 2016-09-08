@@ -9,6 +9,16 @@
     padding-right: 15px;
 }
 
+#formRegistration {
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+    #formRegistration .form-control {
+        position: relative;
+        padding: 20px;
+    }
+
 #sideBar {
     max-width: 20%;
     min-width: 20%;
@@ -41,13 +51,12 @@ ul.pagination > li {
     padding: 6px;
     cursor: pointer;
     z-index: 9999;
-    position: absolute;   
+    position: absolute;
     margin-top: -6px;
     background-color: #ffffff;
 }
 
 .panel-body, .panel-bottom, .panel-info {
-    background-color: #f5f5f5;
 }
 
 .angucomplete-searching {

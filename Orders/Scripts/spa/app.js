@@ -12,18 +12,25 @@
             //Esami uzsakymai
             templateUrl: "scripts/spa/Order/Order.html",
             controller: "orderCtrl"
+            //Sukurti uzsakyma
         }).when("/order/create", {
             templateUrl: "scripts/spa/Order/createOrder.html",
             controller: "createOrderCtrl"
+            //perziureti esamuosius produktus/prideti
         }).when("/Products", {
             templateUrl: "scripts/spa/Product/Product.html",
             controller: "productCtrl"
+            //perziureti salys,trinti
         }).when("/Countries", {
             templateUrl: "scripts/spa/Countries/countries.html",
             controller: "countriesCtrl"
+            //perziureti klientus,trinti
         }).when("/Clients", {
             templateUrl: "scripts/spa/Client/client.html",
             controller: "clientCtrl"
+        }).when("/Register", {
+            templateUrl: "scripts/spa/acount/register.html",
+            controller: "registerCtrl"
         })
         .otherwise({ redirectTo: "/" })
     }
@@ -33,7 +40,7 @@
     function run($rootScope, $location, $cookieStore, $http) {
         console.log("app is started");
         $rootScope.repository = $cookieStore.get('repository') || {};
-        //if ($rootScope.repository.l) {
+        //if ($rootscope.repository.l) {
 
         //}
     }

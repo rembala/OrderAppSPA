@@ -13,7 +13,11 @@ namespace Orders.Infrastructure.Extensions.StoreProcedureExecutions
     {
         public StoreProcedures()
             : base("OrderCon") { }
-
+        /// <summary>
+        /// Visu uzsakymu gavimas, yra defaulatinis parametras pagal kuri galima filtruoti duomenys
+        /// </summary>
+        /// <param name="Filter"></param>
+        /// <returns></returns>
         public List<OrderViewModel> OrderProductGet(string Filter)
         {
             return (Database.SqlQuery<OrderViewModel>("EXEC [web].[OrderProduct_Get] @Filter",
@@ -56,10 +60,6 @@ namespace Orders.Infrastructure.Extensions.StoreProcedureExecutions
                         new SqlParameter("@PlannedDate", PlannedDate),
                         new SqlParameter("@IsActive", IsActive)
                         )).ToList()[0];
-        }
-        public class MyClass
-        {
-            public int OrderId { get; set; }
         }
     }
 }
