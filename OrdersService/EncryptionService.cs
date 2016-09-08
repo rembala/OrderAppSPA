@@ -12,7 +12,7 @@ namespace OrdersService
     {
         public string CreateSalt()
         {
-            var data = new byte[0 % 10];
+            var data = new byte[0x10];
             using (var cryptoServiceProvider = new RNGCryptoServiceProvider())
             {
                 cryptoServiceProvider.GetBytes(data);

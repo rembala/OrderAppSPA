@@ -12,30 +12,34 @@
         $scope.loadData = loadData;
 
         function loadData() {
-            apiService.get('api/authentication/Roles', null, SuccessRolesGet, FailureRolesGet);
+            apiService.get('api/authentication/Roles', null, successRolesGet, failureRolesGet);
         }
 
-        function SuccessRolesGet(result) {
+        function successRolesGet(result) {
             $scope.roles = result.data;
-            $scope.selectedRole = $scope.roles[0].RoleID;
         }
-        function FailureRolesGet() {
+        function failureRolesGet() {
             console.log("Failure roles");
         }
 
         function register() {
-            apiService.post('api/acount', user, successful, Failure);
+            apiService.post('api/authentication/Register', $scope.user, successful, Failure);
         }
 
         function successful(result) {
+            //Gaunamas vartotojas ir identifuojama ar buvo issaugotas
             if (result.data.success) {
                 membershipService.SaveCredentials($scope.user);
-                notificationService.displaySuccess('Sveiki ', +$scope.user.userName);
-                //$scope.userData =
+                notificationService.displaySuccess('Sveiki, ' + $scope.user.UserName);
+                $scope.userData.displayUserInformation();
+                $location.path("/");
+            }
+            else {
+                notificationService.displayError("Nepavyko išsaugoti vartotoją");
             }
         }
 
-        function Failure() {
+        function Failure(te) {
             notificationService.displaySuccess("Įvyko klaida");
         }
         loadData();

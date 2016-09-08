@@ -10,7 +10,7 @@ namespace OrdersService.Abstract
     public interface IMembership
     {
         MembershipContext ValidateUser(string username, string password);
-        User CreateUser(string username, string email, string password, int[] roles);
+        User CreateUser(string username, string FirstName, string LastName, string email, string password, int[] roles);
         User GetUser(int userId);
         List<Role> GetUserRoles(string username);
     }
