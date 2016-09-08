@@ -16,7 +16,7 @@ using OrdersData;
 
 namespace Orders.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Adminas,Vartotojas")]
     [RoutePrefix("api/Orders")]
     public class OrdersController : ApiControllerBase
     {
@@ -100,6 +100,8 @@ namespace Orders.Controllers
         /// <param name="pageSize"></param>
         /// <param name="Filter"></param>
         /// <returns></returns>
+        /// 
+        [AllowAnonymous]
         [Route("{page:int=0}/{pageSize=3}/{filter?}")]
         public HttpResponseMessage Get(HttpRequestMessage request, int? page, int? pageSize, string Filter = null)
         {
@@ -137,6 +139,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="order"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Adminas")]
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, OrderViewModel order)

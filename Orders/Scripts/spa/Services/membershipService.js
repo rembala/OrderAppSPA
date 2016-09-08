@@ -22,7 +22,7 @@
         }
 
         function SaveCredentials(user) {
-            var membershipData = $base64.encode(user.UserName + ":" + user.Password);
+            var membershipData = $base64.encode(user.UserName + ":" + user.password);
 
             $rootScope.repository = {
                 loggedUser: {
@@ -43,7 +43,7 @@
 
         function IsUserLoggedIn() {
             //Tikrinama are buvo uzsetintas
-            return $rootScope.repository.loggedUser != null;
+            return ($rootScope.repository != null && $rootScope.repository.loggedUser != null);
         }
 
         return service;

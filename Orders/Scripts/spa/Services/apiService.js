@@ -14,9 +14,9 @@
                        success(result);
                    }, function (error) {
                        if (error.status == '401') {
-                           notificationService.displayError('Atsiprašome, bet reikalinga auterizacija');
+                           notificationService.displayError('Atsiprašome, bet šita veiksma gali atlikti adminas');
                            $rootScope.previousState = $location.path();
-                           $location.path("/login");
+                           $location.path("/Login");
                        }
                        else if (failure != null) {
                            failure(error);
@@ -30,9 +30,9 @@
                             success(result);
                         }, function (error) {
                             if (error.status == '401') {
-                                notificationService.displayError('Atsiprašome, bet reikalinga auterizacija');
+                                notificationService.displayError('Atsiprašome, bet šita veiksma gali atlikti adminas');
                                 $rootScope.previousState = $location.path();
-                                $location.path("/login");
+                                $location.path("/Login");
                             }
                             else if (failure != null) {
                                 failure(error);
