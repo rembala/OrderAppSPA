@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using OrdersService;
 
 namespace Orders.Controllers
 {
@@ -23,11 +24,11 @@ namespace Orders.Controllers
         /// Vartotojo registracija
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="registerViewModel"></param>
+        /// <param name="newUser"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("Register")]
-        public HttpResponseMessage Register(HttpRequestMessage request, RegisterViewModel registerViewModel)
+        public HttpResponseMessage Register(HttpRequestMessage request, RegisterViewModel newUser)
         {
             this._entityTypes = new List<Type>() { typeof(IMembership) };
 
@@ -42,7 +43,7 @@ namespace Orders.Controllers
                 else
                 {
                     OrdersEntities.Entities.User _user = this._membershipRepository.
-                    CreateUser(registerViewModel.UserName, registerViewModel.Email, registerViewModel.Password, new int[] { 1 });
+                    CreateUser(newUser.UserName, newUser.FirstName, newUser.LastName, newUser.Email, newUser.Password, new int[] { newUser.RoleID });
 
                     if (_user != null)
                     {
@@ -71,6 +72,36 @@ namespace Orders.Controllers
                         respone = request.CreateResponse<IEnumerable<Role>>(HttpStatusCode.OK, RoleList);
                         return respone;
                     });
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public HttpResponseMessage Login(HttpRequestMessage request, LoginViewModel userCredentials)
+        {
+            this._entityTypes = new List<Type>() { typeof(User) };
+
+            return this.CreateHttpResponse(request, _entityTypes, () =>
+            {
+                HttpResponseMessage response = null;
+
+                if (ModelState.IsValid)
+                {
+                    MembershipContext _userContext = this._membershipRepository.ValidateUser(userCredentials.UserName, userCredentials.Password);
+
+                    if (_userContext.User != null)
+                    {
+                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = true });
+                    }
+                    else
+                    {
+                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = false });
+                    }
+                }
+                else
+                    response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = false });
+
+                return response;
+            });
         }
     }
 }

@@ -22,16 +22,17 @@
         }
 
         function SaveCredentials(user) {
-            var membershipData = $base64.encode(user.userName, + ":" + user.password);
+            var membershipData = $base64.encode(user.UserName + ":" + user.Password);
 
             $rootScope.repository = {
                 loggedUser: {
-                    username: user.username,
+                    UserName: user.UserName,
+                    //Paskui server sid'e isparsinama ir identifikuojama
                     authData: membershipData
                 }
             };
             $http.defaults.headers.common['Authorization'] = "Basic" + membershipData;
-            $cookieStore.put("repository", $rootScope.repository);
+            $cookieStore.put("repository", $rootScope.repository, { 'expires': (new Date().getDate() + 1) });
         }
 
         function RemoveCredentials() {
@@ -41,6 +42,7 @@
         }
 
         function IsUserLoggedIn() {
+            //Tikrinama are buvo uzsetintas
             return $rootScope.repository.loggedUser != null;
         }
 

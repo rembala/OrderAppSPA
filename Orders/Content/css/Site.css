@@ -9,12 +9,12 @@
     padding-right: 15px;
 }
 
-#formRegistration {
+#formRegistration,#userLoginForm {
     max-width: 30%;
     margin: 0 auto;
 }
 
-    #formRegistration .form-control {
+    #formRegistration input.form-control[type=text],  #userLoginForm input.form-control[type=text] {
         position: relative;
         padding: 20px;
     }

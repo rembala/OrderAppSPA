@@ -73,7 +73,7 @@ namespace OrdersService
             return _result.Distinct().ToList();
         }
 
-        public User CreateUser(string username, string email, string password, int[] roles)
+        public User CreateUser(string username, string FirstName, string LastName, string email, string password, int[] roles)
         {
             var existingUser = this._userRepository.GetSingleByUsername(username);
             if (existingUser != null)
@@ -84,10 +84,12 @@ namespace OrdersService
             var user = new User()
             {
                 UserName = username,
+                FirstName = FirstName,
+                LastName = LastName,
                 Salt = passwordSalt,
                 Email = email,
                 IsLocked = false,
-                HashedPassword = this._encryptionService.EncryptPassword(passwordSalt, passwordSalt),
+                HashedPassword = this._encryptionService.EncryptPassword(password, passwordSalt),
                 DateCreated = DateTime.Now
             };
             this._userRepository.Add(user);

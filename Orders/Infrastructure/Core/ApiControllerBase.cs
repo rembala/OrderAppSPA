@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using OrdersService;
 
 namespace Orders.Infrastructure.Core
 {
@@ -79,7 +80,7 @@ namespace Orders.Infrastructure.Core
         {
             if (entities != null)
             {
-                if (entities.GetType().IsAssignableFrom(typeof(IMembership)))
+                if (entities.Any(e => e.GetType().IsAssignableFrom(typeof(MembershipService).GetType())))
                 {
                     this._membershipRepository = this.HttpRequestMessage.GetMembershipService();
                 }

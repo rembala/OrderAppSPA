@@ -13,7 +13,7 @@
             templateUrl: "scripts/spa/Order/Order.html",
             controller: "orderCtrl"
             //Sukurti uzsakyma
-        }).when("/order/create", {
+        }).when("/create", {
             templateUrl: "scripts/spa/Order/createOrder.html",
             controller: "createOrderCtrl"
             //perziureti esamuosius produktus/prideti
@@ -31,8 +31,18 @@
         }).when("/Register", {
             templateUrl: "scripts/spa/acount/register.html",
             controller: "registerCtrl"
+        }).when("/Login", {
+            templateUrl: "scripts/spa/acount/Login.html",
+            controller: "LoginrCtrl"
         })
-        .otherwise({ redirectTo: "/" })
+        .otherwise({ redirectTo: "/" });
+        
+        //TODO: Perkrovimo metu luzta
+
+        //$locationProvider.html5Mode({
+        //    enabled: true,
+        //    requireBase: false
+        //});
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http']
