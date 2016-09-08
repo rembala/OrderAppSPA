@@ -1,7 +1,9 @@
 ﻿using OrdersData;
+using Orders.Infrastructure.Extensions;
 using OrdersData.Infrastructure;
 using OrdersData.Repository;
 using OrdersEntities.Entities;
+using OrdersService.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -28,9 +30,11 @@ namespace Orders.Infrastructure.Core
         protected IEntityBaseRepository<Client> _clientRepository;
         protected IEntityBaseRepository<OrderProduct> _orderProductRepository;
         protected IEntityBaseRepository<Country> _countryRepository;
+        protected IEntityBaseRepository<Role> _roleRepository;
         protected IEntityBaseRepository<Product> _productRepository;
         protected IEntityBaseRepository<Status> _statusRepository;
         protected IEntityBaseRepository<User> _userRepository;
+        protected IMembership _membershipRepository;
         protected IEntityBaseRepository<ProductType> _productTypeRepository;
         #endregion
         //Kad butu single requestas
@@ -75,6 +79,14 @@ namespace Orders.Infrastructure.Core
         {
             if (entities != null)
             {
+                if (entities.GetType().IsAssignableFrom(typeof(IMembership)))
+                {
+                    this._membershipRepository = this.HttpRequestMessage.GetMembershipService();
+                }
+                if (entities.Any(e => e.FullName == typeof(Role).FullName))
+                {
+                    this._roleRepository = this._dataRepositoryFactory.GetDataRepository<Role>(this.HttpRequestMessage);
+                }
                 if (entities.Any(e => e.FullName == typeof(ProductType).FullName))
                 {
                     this._productTypeRepository = this._dataRepositoryFactory.GetDataRepository<ProductType>(this.HttpRequestMessage);

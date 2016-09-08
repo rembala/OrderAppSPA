@@ -2,7 +2,7 @@
 
     app.factory("apiService", apiService);
 
-    function apiService($http, $location, $rootScope) {
+    function apiService($http, $location, notificationService, $rootScope) {
         var service = {
             get: get,
             post: post
@@ -13,7 +13,14 @@
                    .then(function (result) {
                        success(result);
                    }, function (error) {
-                       console.log(error);
+                       if (error.status == '401') {
+                           notificationService.displayError('Atsiprašome, bet reikalinga auterizacija');
+                           $rootScope.previousState = $location.path();
+                           $location.path("/login");
+                       }
+                       else if (failure != null) {
+                           failure(error);
+                       }
                    })
         }
 
@@ -22,15 +29,14 @@
                         .then(function (result) {
                             success(result);
                         }, function (error) {
-                            console.log(error);
-                            //if (error.status == '401') {
-                            //    notificationService.displayError("authentication required");
-                            //    $rootScope.previousState = $location.path();
-                            //    $location.path("/login");
-                            //}
-                            //else if (failure != null) {
-                            //    failure(error);
-                            //}
+                            if (error.status == '401') {
+                                notificationService.displayError('Atsiprašome, bet reikalinga auterizacija');
+                                $rootScope.previousState = $location.path();
+                                $location.path("/login");
+                            }
+                            else if (failure != null) {
+                                failure(error);
+                            }
                         })
         }
 

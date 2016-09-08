@@ -1,7 +1,6 @@
 ﻿using Orders.Infrastructure.Core;
 using Orders.Infrastructure.Extensions.StoreProcedureExecutions;
 using Orders.Models;
-using Orders.Infrastructure.Core;
 using OrdersData.Infrastructure;
 using Orders.Infrastructure.Extensions;
 using OrdersData.Repository;
@@ -23,10 +22,7 @@ namespace Orders.Controllers
     {
         //private readonly IUnitOfWork unitOfWork;
         public OrdersController(IDataRepositoryFactory dataRepositoryFactory, IUnitOfWork unitOfWork, IEntityBaseRepository<Order> Order)
-            : base(dataRepositoryFactory, unitOfWork)
-        {
-
-        }
+            : base(dataRepositoryFactory, unitOfWork) { }
 
         /// <summary>
         /// Visi uzsakymai praeito ir sio menesio

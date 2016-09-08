@@ -41,7 +41,10 @@ namespace Orders
                        "~/Scripts/spa/Directives/datepickerjQueryUi.js",
                        "~/Scripts/spa/Product/productCtrl.js",
                        "~/Scripts/spa/Countries/countriesCtrl.js",
-                       "~/Scripts/spa/Client/clientCtrl.js"
+                       "~/Scripts/spa/Client/clientCtrl.js",
+                       "~/Scripts/spa/Services/membershipService.js",
+                       "~/Scripts/spa/acount/registerCtrl.js",
+                       "~/Scripts/spa/acount/loginCtrl.js"
                        ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

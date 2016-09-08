@@ -164,12 +164,14 @@
     <Compile Include="Infrastructure\Extensions\StoreProcedureExecutions\StoreProcedures.cs" />
     <Compile Include="Infrastructure\Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mappings\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Infrastructure\MessageHandlers\OrderRequestHandler.cs" />
     <Compile Include="Infrastructure\Validators\OrderViewModelValidator.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\CountryViewModel.cs" />
     <Compile Include="Models\OrderProductViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -192,11 +194,19 @@
     <Content Include="Content\fancybox\fancybox_sprite.png" />
     <Content Include="Content\css\loading-bar.min.css" />
     <Content Include="Content\css\toastr.min.css" />
+    <Content Include="Content\images\1.PNG" />
+    <Content Include="Content\images\2.PNG" />
+    <Content Include="Content\images\4.PNG" />
+    <Content Include="Content\images\background.jpg" />
     <Content Include="Content\TextFile1.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\spa\acount\login.html" />
+    <Content Include="Scripts\spa\acount\loginCtrl.js" />
+    <Content Include="Scripts\spa\acount\register.html" />
+    <Content Include="Scripts\spa\acount\registerCtrl.js" />
     <Content Include="Scripts\spa\app.js" />
     <Content Include="Scripts\spa\Client\clientCtrl.js" />
     <Content Include="Scripts\spa\Countries\countriesCtrl.js" />
@@ -220,6 +230,7 @@
     <Content Include="Scripts\spa\Product\Product.html" />
     <Content Include="Scripts\spa\Product\productCtrl.js" />
     <Content Include="Scripts\spa\Services\apiService.js" />
+    <Content Include="Scripts\spa\Services\membershipService.js" />
     <Content Include="Scripts\spa\Services\notificationService.js" />
     <Content Include="Scripts\vendors\angucomplete-alt.min.js" />
     <Content Include="Scripts\vendors\angular-base64.min.js" />

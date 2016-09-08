@@ -5,6 +5,7 @@ using Orders.Infrastructure.Extensions;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
+using OrdersService.Abstract;
 
 namespace Orders.Infrastructure.Core
 {
