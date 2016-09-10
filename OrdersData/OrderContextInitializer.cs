@@ -28,7 +28,6 @@ namespace OrdersData
              );
             context.Role.Add(new Role() { RoleID = 1, RoleName = "Adminas" });
             context.Role.Add(new Role() { RoleID = 2, RoleName = "Vartotojas" });
-            context.Role.Add(new Role() { RoleID = 3, RoleName = "Moderatorius" });
 
             context.UserRole.Add(new UserRole() { RoleID = 1, UserID = 1 });
 

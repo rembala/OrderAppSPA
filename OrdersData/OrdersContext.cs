@@ -13,6 +13,8 @@ namespace OrdersData
         public OrdersContext()
             : base("OrderCon")
         {
+            //TODO: Sita atkomentuokite, jeigu nenori kad pasikratu DB su inicializutais duomenimis, o tada sekancia eiltutę užkomentuokite.
+            //Database.Initialize(true);
             Database.SetInitializer(new OrderContextInitializer());
         }
         public IDbSet<Order> Order { get; set; }
