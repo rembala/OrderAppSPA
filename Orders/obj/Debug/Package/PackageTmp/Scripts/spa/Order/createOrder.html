@@ -1,0 +1,112 @@
+﻿<hr />
+<div style="background-color:#ffffff;padding:10px;">
+    <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dissmiss="alert">x</a>
+        <i class="fa fa-check fa-3x"></i>
+        Naujo užsakymo sukūrimas, prašome užpildyti visus laukus !
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <form role="form" novalidate angular-validator name="addOrderForm" angular-validator-submit="AddNewOrder()">
+                <label class="label label-success" ng-show="Products.length != 0"> Produktu kiekis {{Products.length}}</label>
+                <div class="form-group">
+                    <angucomplete-alt id="members"
+                                      placeholder="Pasirinkite produktą"
+                                      pause="200"
+                                      selected-object="selectProductFun"
+                                      input-changed="selectionChanged"
+                                      remote-url="/api/Product/search?filter="
+                                      remote-url-data-field=""
+                                      title-field="ProductName"
+                                      description-field=""
+                                      input-class="form-control form-control-small"
+                                      match-class="red"
+                                      text-searching="Vyksta produkto paieška"
+                                      text-no-results="Atsiprašome, nebuvo surasta produktų" />
+                </div>
+                <div ng-if="selectedProduct">
+                    <a ng-click="addProductToOrder()" class="btn btn-info btn-xs">Pridėti produktą</a>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Pasirinkite šalį</label>
+                    <angucomplete-alt id="members"
+                                      placeholder="Pasirinkite šalį"
+                                      pause="200"
+                                      selected-object="selectCountryFn"
+                                      input-changed="selectionChanged"
+                                      remote-url="/api/Country?filter="
+                                      remote-url-data-field=""
+                                      title-field="CountryName"
+                                      description-field=""
+                                      input-class="form-control form-control-small"
+                                      match-class="red"
+                                      text-searching="Vyksta šalies paieška"
+                                      text-no-results="Atsiprašome, nebuvo surasta šalių"
+                                      field-required="true"
+                                      input-name="country" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Pasirinkite klientą</label>
+                    <angucomplete-alt id="members"
+                                      placeholder="Pasirinkite klientą"
+                                      pause="200"
+                                      selected-object="selectCustomerFn"
+                                      input-changed="selectionChanged"
+                                      remote-url="/api/Client?filter="
+                                      remote-url-data-field=""
+                                      title-field="ClientName"
+                                      description-field=""
+                                      input-class="form-control form-control-small"
+                                      match-class="red"
+                                      text-searching="Vyksta kliento paieška"
+                                      text-no-results="Atsiprašome, bet joks klientas nebuvo surastas"
+                                      field-required="true"
+                                      input-name="Client" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Užsakymo numeris
+                    </label>
+                    <input type="text" ng-model="order.OrderNo" class="form-control" name="OrderNo" id="OrderNo" placeholder="FirstName" validate-on="blur" required
+                           required-message="'Užsakymo numeris yra būtinas'" />
+                </div>
+                <label class="control-label">
+                    Planuojama užbaigimo data
+                </label>
+                <div class="form-group">
+                    <input type="text" ng-model="order.PlannedDate" class="form-control" name="PlannedDate" id="PlannedDate" placeholder="Įveskite planuojama užbaigimo datą"
+                           validate-on="blur" required required-message="'Planuojama data yra būtina'" jqdatepicker />
+                </div>
+                <input type="submit" name="submit" id="submit" value="Kurti" ng-disabled="!DisabledButton();" class="btn btn-info pull-right" />
+            </form>
+        </div>
+
+        <div ng-if="Products.length > 0">
+            <h2>Pasirinkti produktai</h2>
+            <div class="col-sm-6">
+                <div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Produkto pavadinimas</th>
+                                <th>Produkto tipas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="product in Products">
+                                <td>
+                                    {{product.ProductName}}
+                                </td>
+                                <td>
+                                    {{product.ProductType.ProductTypeName}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

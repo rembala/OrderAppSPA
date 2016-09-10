@@ -16,6 +16,17 @@
         $scope.selectCustomerFn = selectCustomerFn;
         $scope.AddNewOrder = AddNewOrder;
         $scope.DisabledButton = DisabledButton;
+        $scope.checkValidation = checkValidation;
+
+        function checkValidation() {
+            apiService.get('api/Orders', null, success, failure);
+        }
+        function success() {
+
+        }
+        function failure() {
+
+        }
 
         function AddNewOrder() {
             apiService.post("api/Orders/add",
@@ -35,7 +46,7 @@
         }
 
         function OrderLoadedCompleted(result) {
-            notificationService.displaySuccess("Sukurtas užsakymas ");
+            notificationService.displaySuccess("Užsakymas su numeriu " + result.data + " pradėtas vykdyti");
             $location.path('/');
         }
         function Orderfailure() {
@@ -72,7 +83,7 @@
             $scope.selectedProduct = null;
 
         }
-
+        checkValidation();
     }
 
 })(angular.module('Order'))

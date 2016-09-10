@@ -31,6 +31,8 @@ namespace Orders.Infrastructure.MessageHandlers
                     string[] tokensValue = decodedString.Split(':');
                     var membershipService = request.GetMembershipService();
                     var memberCtx = membershipService.ValidateUser(tokensValue[0], tokensValue[1]);
+                    //System.Web.HttpContext.Current.Session["UserId"] = Convert.ToInt32(tokens[2]);                   
+                    //Microsoft.AspNet.Identity.IdentityExtensions.GetUserId(memberCtx.User);
                     if (memberCtx != null)
                     {
                         IPrincipal principal = memberCtx.Principal;
@@ -54,7 +56,7 @@ namespace Orders.Infrastructure.MessageHandlers
                 }
                 return base.SendAsync(request, cancellationToken);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
                 var tsc = new TaskCompletionSource<HttpResponseMessage>();

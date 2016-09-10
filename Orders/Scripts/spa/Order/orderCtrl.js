@@ -24,7 +24,7 @@
                 }
             };
 
-            apiService.get("api/Orders/", config, OrderLoadedCompleted, OrderLoadedFailure);
+            apiService.get("api/Orders/ShowAll/", config, OrderLoadedCompleted, OrderLoadedFailure);
         }
 
         function OrderLoadedCompleted(result) {

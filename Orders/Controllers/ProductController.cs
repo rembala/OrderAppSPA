@@ -2,6 +2,7 @@
 using Orders.Models;
 using OrdersData.Infrastructure;
 using OrdersEntities.Entities;
+using OrdersService.CustomAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;

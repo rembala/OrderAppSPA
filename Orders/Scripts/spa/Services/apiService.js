@@ -14,7 +14,7 @@
                        success(result);
                    }, function (error) {
                        if (error.status == '401') {
-                           notificationService.displayError('Atsiprašome, bet šita veiksma gali atlikti adminas');
+                           notificationService.displayError('Atsiprašome, bet jums neužtenka teisių šitam veiksmui atlikti');
                            $rootScope.previousState = $location.path();
                            $location.path("/Login");
                        }
@@ -30,7 +30,7 @@
                             success(result);
                         }, function (error) {
                             if (error.status == '401') {
-                                notificationService.displayError('Atsiprašome, bet šita veiksma gali atlikti adminas');
+                                notificationService.displayError('Atsiprašome, bet jums neužtenka teisių šitam veiksmui atlikti');
                                 $rootScope.previousState = $location.path();
                                 $location.path("/Login");
                             }

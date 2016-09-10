@@ -22,7 +22,7 @@
         }
 
         function SaveCredentials(user) {
-            var membershipData = $base64.encode(user.UserName + ":" + user.password);
+            var membershipData = $base64.encode(user.UserName + ":" + user.password + ":" + user.UserID);
 
             $rootScope.repository = {
                 loggedUser: {
