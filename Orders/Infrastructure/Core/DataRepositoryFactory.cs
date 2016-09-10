@@ -5,7 +5,7 @@ using Orders.Infrastructure.Extensions;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
-using OrdersService.Abstract;
+using OrdersService.CustomAuthentication;
 
 namespace Orders.Infrastructure.Core
 {

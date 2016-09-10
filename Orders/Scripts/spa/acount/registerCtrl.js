@@ -28,8 +28,13 @@
 
         function successful(result) {
             //Gaunamas vartotojas ir identifuojama ar buvo issaugotas
-            if (result.data.success) {
-                membershipService.SaveCredentials($scope.user);
+            if (result.data) {
+                var UserCredentials = {
+                    UserName: $scope.user.UserName,
+                    password: $scope.user.Password,
+                    UserID: result.data.UserID
+                }
+                membershipService.SaveCredentials(UserCredentials);
                 notificationService.displaySuccess('Sveiki, ' + $scope.user.UserName);
                 $scope.userData.displayUserInformation();
                 if ($rootScope.previousState) {
@@ -40,12 +45,12 @@
                 }
             }
             else {
-                notificationService.displayError("Nepavyko išsaugoti vartotoją");
+                notificationService.displayError(result);
             }
         }
 
-        function Failure(te) {
-            notificationService.displaySuccess("Įvyko klaida");
+        function Failure(errorMessage) {
+            notificationService.displayError(errorMessage.data);
         }
         loadData();
     }

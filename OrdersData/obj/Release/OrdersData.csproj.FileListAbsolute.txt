@@ -1,0 +1,12 @@
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\OrdersData.dll.config
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\OrdersData.dll
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\OrdersData.pdb
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\EntityFramework.dll
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\OrdersEntities.dll
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\OrdersEntities.pdb
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\EntityFramework.xml
+C:\Users\ARTA\Desktop\Orders\OrdersData\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ARTA\Desktop\Orders\OrdersData\obj\Release\OrdersData.csprojResolveAssemblyReference.cache
+C:\Users\ARTA\Desktop\Orders\OrdersData\obj\Release\OrdersData.dll
+C:\Users\ARTA\Desktop\Orders\OrdersData\obj\Release\OrdersData.pdb

@@ -27,7 +27,7 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="filter"></param>
         /// <returns></returns>
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public HttpResponseMessage Get(HttpRequestMessage request, string filter = null)
         {
             this._entityTypes = new List<Type>() { typeof(Country) };

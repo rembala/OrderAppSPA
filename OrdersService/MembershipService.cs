@@ -1,7 +1,7 @@
 ﻿using OrdersData.Infrastructure;
 using OrdersData.Repository;
 using OrdersEntities.Entities;
-using OrdersService.Abstract;
+using OrdersService.CustomAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +78,7 @@ namespace OrdersService
             var existingUser = this._userRepository.GetSingleByUsername(username);
             if (existingUser != null)
             {
-                throw new Exception("UserName is already in use");
+                throw new Exception("Vartotojo vardas " + username + " egzistuoja");
             }
             var passwordSalt = this._encryptionService.CreateSalt();
             var user = new User()

@@ -12,7 +12,10 @@
             <li><a href="#/Clients">Klientai<i class="fa fa-user-times fa-fw pull-right" aria-hidden="true"></i></a></li>
             <li class="nav-divider"></li>
             <li ng-if="userData.loggedIn">
-                <a href="#" ng-click="logout()">Atsijungti<i class="fa fa-sign-out fa-fw pull-right" aria-hidden="true"></i></a>
+                <a ng-click="logout()">Atsijungti<i class="fa fa-sign-out fa-fw pull-right" aria-hidden="true"></i></a>
+            </li>
+            <li ng-if="UserIsUndefined()">
+                <a href="#/Login">Login<i class="fa fa-user-times fa-fw pull-right" aria-hidden="true"></i></a>
             </li>
         </ul>
     </div>

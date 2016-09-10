@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrdersService.Abstract
+namespace OrdersService.CustomAuthentication
 {
     public interface IMembership
     {

@@ -1,0 +1,90 @@
+﻿<hr />
+<div id="ProductSidebar">
+    <div class="panel panel-info">
+        <div class="panel panel-heading">
+            <h2 class="text-center">Produkto pridėjimas/atvaizdavimas</h2>
+        </div>
+        <div class="panel panel-body">
+            <div id="productCreateionLeftSide">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Naujo produkto pildymas
+                    </div>
+                    <form role="form" novalidate angular-validator name="addProductForm" angular-validator-submit="AddNewProduct()">
+                        <div class="panel panel-body">
+
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Produkto pavadinimas
+                                </label>
+                                <input type="text" ng-model="product.ProductName" class="form-control" name="ProductName" id="ProductName" placeholder="Įveskite produkto pavadinimą" required
+                                       validate-on="blur" required-message="'Produkto pavadinimas yra būtinas'" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Produkto tipas
+                                </label>
+                                <angucomplete-alt id="ProductInput"
+                                                  placeholder="Pasirinkite produkt tipą"
+                                                  pause="200"
+                                                  selected-object="selectProductTypeFn"
+                                                  input-changed="selectionChanged"
+                                                  remote-url="/api/Product/ProductTypeChoose?filter="
+                                                  remote-url-data-field=""
+                                                  title-field="ProductTypeName"
+                                                  description-field=""
+                                                  input-class="form-control form-control-small"
+                                                  match-class="red"
+                                                  text-searching="Vyksta produkto tipo paieška"
+                                                  text-no-results="Atsiprašome, bet toks produkto tipas neegzistuoja"
+                                                  field-required="true"
+                                                  innput-name="ProductTxt" />
+                            </div>
+                            <input type="submit" name="submit" id="submit" value="kurti" ng-disabled="DissableButton()" class="btn btn-info pull-right">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div ng-if="loadingProducts" style="text-align:center;">
+                <i class="fa fa-refresh fa-5x fa-spin"></i>
+                <label class="label label-primary">Kraunami ..</label>
+            </div>
+
+            <div id="productsTable" ng-if="!loadingProducts">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Esami produktai</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Produkto pavadinimas</td>
+                                    <td>Produkto tipo pavadinimas</td>
+                                    <td>Sukūrimo data</td>
+                                    <td>Redagavimas</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="product in Products">
+                                    <td>{{product.ProductName}}</td>
+                                    <td>{{product.ProductTypeName}}</td>
+                                    <td>{{product.CreationDate | date :format : 'yyyy-MM-dd' }}</td>
+                                    <td><a href="~/" ng-click="test">Redaguoti</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-bottom">
+                        <div class="text-center"> Viso produktų : <b>{{Products.length}}</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-bottom">
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿<hr />
+<div id="CountrySidebar">
+    <div class="panel panel-info">
+        <div class="panel panel-heading">
+            <h2 class="text-center">Šalies pridėjimas/atvaizdavimas</h2>
+        </div>
+        <div class="panel panel-body">
+            <div id="countrysCreationLeftSide">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Naujos šalies pildymas
+                    </div>
+                    <form role="form" novalidate angular-validator name="addcountryForm" angular-validator-submit="AddNewcountry()">
+                        <div class="panel panel-body">
+                            <div class="form-group">
+                                <input type="text" ng-model="Country.name" class="form-control" name="countryName" id="countryName" placeholder="Įveskite šalies pavadinimą" required
+                                       validate-on="blur" required-message="'Šalies pavadinimas yra būtinas'" />
+                            </div>
+                        </div>
+                        <div class="panel panel-bottom clearfix">
+                            <div class="pull-right" style="margin-right:5px;">
+                                <input type="submit" name="submit" id="submit" value="kurti" class="btn btn-info pull-right">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div ng-if="Loadingcountries" style="text-align:center;">
+                <i class="fa fa-refresh fa-5x fa-spin"></i>
+                <label class="label label-primary">Kraunasi ..</label>
+            </div>
+            <div id="countriesTable" ng-if="!Loadingcountries">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Šalių sąrašas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Šalies pavadinimas</td>
+                                    <td>Redagavimas</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="product in countries">
+                                    <td>{{product.CountryName}}</td>
+                                    <td><a href="">Redaguoti</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel panel-bottom">
+                        <div class="text-center"> Viso : <b>{{countries.length}}</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-bottom">
+
+        </div>
+    </div>
+</div>

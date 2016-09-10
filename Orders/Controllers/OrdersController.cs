@@ -102,7 +102,7 @@ namespace Orders.Controllers
         /// <returns></returns>
         /// 
         [AllowAnonymous]
-        [Route("{page:int=0}/{pageSize=3}/{filter?}")]
+        [Route("ShowAll/{page:int=0}/{pageSize=3}/{filter?}")]
         public HttpResponseMessage Get(HttpRequestMessage request, int? page, int? pageSize, string Filter = null)
         {
             this._entityTypes = new List<Type>() { typeof(Order) };
@@ -139,18 +139,17 @@ namespace Orders.Controllers
         /// <param name="request"></param>
         /// <param name="order"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Adminas")]
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage Add(HttpRequestMessage request, OrderViewModel order)
         {
-            this._entityTypes = new List<Type>() { typeof(OrderProduct) };
-
+            this._entityTypes = new List<Type>() { typeof(OrderProduct), typeof(User) };
             return this.CreateHttpResponse(request, this._entityTypes,
                    () =>
                    {
+                       var OrderSaveProc = new StoreProcedures();
                        HttpResponseMessage response = null;
-                       int OrderId = Convert.ToInt32(new StoreProcedures().Order_Save(null, DateTime.Now, 1, order.OrderNo, 2, order.CountryId, order.ClientId, order.PlannedDate, true));
+                       int OrderId = Convert.ToInt32(OrderSaveProc.Order_Save(null, DateTime.Now, OrderSaveProc.UserGet(System.Web.HttpContext.Current.User.Identity.Name), order.OrderNo, 2, order.CountryId, order.ClientId, order.PlannedDate, true));
                        foreach (Product item in order.Products)
                        {
                            this._orderProductRepository.Add(new OrderProduct()
@@ -161,8 +160,7 @@ namespace Orders.Controllers
                            });
                        }
                        this._unitOfWork.Commit();
-                       var OrderViewModelList = new StoreProcedures().OrderProductGet(null);
-                       return response = this.Request.CreateResponse<IEnumerable<OrderViewModel>>(HttpStatusCode.OK, OrderViewModelList);
+                       return response = this.Request.CreateResponse<int>(HttpStatusCode.OK, order.OrderNo);
                    });
         }
     }

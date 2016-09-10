@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <form id="formRegistration" novalidate angular-validator name="userRegistrationForm" angular-validator-submit="register()">
+        <h3 class="form-signing-heading">
+            Registracija
+        </h3>
+        <div class="form-group">
+            <label>Pasirinkite rolė</label>
+            <select ng-model="user.RoleID" required-message="'Rolė yra būtina'" required class="form-control black" name="Role" ng-options="role.RoleID as role.RoleName for role in roles track by role.RoleID"></select>
+        </div>
+        <div class="form-group">
+            <label>
+                Vardas
+            </label>
+            <input type="text" ng-model="user.FirstName" required valida-on="blur" name="firstName" class="form-control" placeholder="Įveskite varda"
+                   required-message="'Vardas yra būtinas'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Pavardė
+            </label>
+            <input type="text" ng-model="user.LastName" required valida-on="blur" name="LastName" class="form-control" placeholder="Įveskite pavardė"
+                   required-message="'Vartotojo pavardė yra būtina'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Vartotojo vardas
+            </label>
+            <input type="text" ng-model="user.UserName" required valida-on="blur" name="LastName" class="form-control" placeholder="Įveskite varotojo vardą"
+                   required-message="'Vartotojo vardas yra būtinas'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Slaptažodis
+            </label>
+            <input type="password" ng-model="user.Password" class="form-control" name="password" required valida-on="blur" placeholder="Įveskite slaptažodį"
+                   required-message="'Vartotojo slaptažodis yra būtinas'" />
+        </div>
+        <div class="form-group">
+            <label>
+                Elekr. paštas
+            </label>
+
+            <input type="email" name="Email" ng-model="user.Email" error-message="'sads'" validate-on="blur" placeholder="Įveskite elektr. paštą" class="form-control">
+
+        </div>
+        <button type="submit" class="btn btn-primary  pull-right"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register</button>
+    </form>
+</div>
+

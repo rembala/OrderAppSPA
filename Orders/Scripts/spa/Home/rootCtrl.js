@@ -8,6 +8,7 @@
         $scope.userData = {};
         $scope.userData.displayUserInformation = displayUserInformation;
         $scope.logout = logout;
+        $scope.UserIsUndefined = UserIsUndefined;
 
         function displayUserInformation() {
             $scope.userData.loggedIn = membershipService.IsUserLoggedIn();
@@ -15,10 +16,14 @@
                 $scope.userData.UserName = $rootScope.repository.loggedUser.UserName;
             }
         }
+        function UserIsUndefined() {
+            return $scope.userData.loggedIn == false;
+        }
+
         function logout() {
             membershipService.RemoveCredentials();
+            $location.path('#/');
             $scope.userData.displayUserInformation();
-            $location.path("/");
         }
         displayUserInformation();
     }

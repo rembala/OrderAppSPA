@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <form novalidate angular-validator name="userLoginForm" id="userLoginForm" angular-validator-submit="login()">
+        <h3>Sign in</h3>
+        <div class="form-group">
+            <label>Vartotojo vardas</label>
+            <input type="text" required validate-on="blur" name="username" class="form-control" ng-model="user.UserName" placeholder="Vartotojo vardas"
+                   required-message="'Vartotojo vardas yra privalomas'" />
+        </div>
+        <div class="form-group">
+            <label>Vartotojo slaptažodis</label>
+            <input type="password" required validate-on="blur" class="form-control" name="password" ng-model="user.password" placeholder="Slaptažodis"
+                   required-message="'Slaptažodis yra privalomas'" />
+        </div>
+        <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block" />
+        <div class="pull-right">
+            <a ng-href="#/Register" class="control-label">Registracija<i class="fa fa-registered" aria-hidden="true"></i></a>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,7 @@ using Orders.Infrastructure.Extensions;
 using OrdersData.Infrastructure;
 using OrdersData.Repository;
 using OrdersEntities.Entities;
-using OrdersService.Abstract;
+using OrdersService.CustomAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -22,9 +22,6 @@ namespace Orders.Infrastructure.Core
         protected readonly IDataRepositoryFactory _dataRepositoryFactory;
         protected List<Type> _entityTypes = null;
         protected OrdersContext _OrdersContext;
-
-        private HttpRequestMessage HttpRequestMessage = null;
-
         #region Enticiai
         protected IEntityBaseRepository<Error> _errorsRepository;
         protected IEntityBaseRepository<Order> _orderRepository;
@@ -40,6 +37,16 @@ namespace Orders.Infrastructure.Core
         #endregion
         //Kad butu single requestas
         protected IUnitOfWork _unitOfWork;
+        protected int UserIdGet
+        {
+            get
+            {
+                var userID = (int)System.Web.HttpContext.Current.Session["UserId"];
+                return userID;
+            }
+        }
+
+        private HttpRequestMessage HttpRequestMessage = null;
 
         public ApiControllerBase(IDataRepositoryFactory dataRepositoryFactory, IUnitOfWork unitOfWork)
         {
@@ -71,7 +78,7 @@ namespace Orders.Infrastructure.Core
             }
             catch (Exception ex)
             {
-                LogError(ex);
+                response = this.Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
             return response;
         }

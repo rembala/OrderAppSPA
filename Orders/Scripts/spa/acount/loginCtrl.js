@@ -13,8 +13,14 @@
         }
 
         function successfullLogin(result) {
-            if (result.data.success) {
-                membershipService.SaveCredentials($scope.user);
+            if (result.data) {
+                var UserCredentials = {
+                    UserName: $scope.user.UserName,
+                    password: $scope.user.Password,
+                    UserID: result.data.UserID
+                }
+
+                membershipService.SaveCredentials(UserCredentials);
                 notificationService.displaySuccess('Sveiki, ' + $scope.user.UserName);
                 $scope.userData.displayUserInformation();
                 if ($rootScope.previousState) {
@@ -25,12 +31,12 @@
                 }
             }
             else {
-                notificationService.displayError("Toks vartotojas neegzistuoja arba neteisiklingas slaptazodis");
+                notificationService.displayError(result.data);
             }
         }
 
-        function FailureLogin() {
-            notificationService.displayError("Įvykot klaida");
+        function FailureLogin(error) {
+            notificationService.displayError(error.data);
         }
     }
 

@@ -2,7 +2,7 @@
 using OrdersEntities.Entities;
 using Orders.Models;
 using OrdersData.Infrastructure;
-using OrdersService.Abstract;
+using OrdersService.CustomAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,11 +47,11 @@ namespace Orders.Controllers
 
                     if (_user != null)
                     {
-                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = true });
+                        response = this.Request.CreateResponse<OrdersEntities.Entities.User>(HttpStatusCode.OK, _user);
                     }
                     else
                     {
-                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = false });
+                        response = this.Request.CreateResponse<OrdersEntities.Entities.User>(HttpStatusCode.OK, null);
                     }
                 }
 
@@ -90,11 +90,11 @@ namespace Orders.Controllers
 
                     if (_userContext.User != null)
                     {
-                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = true });
+                        response = this.Request.CreateResponse<OrdersEntities.Entities.User>(HttpStatusCode.OK, _userContext.User);
                     }
                     else
                     {
-                        response = this.Request.CreateResponse(HttpStatusCode.OK, new { success = false });
+                        response = this.Request.CreateResponse(HttpStatusCode.NotFound, "Vartotojoas neegzistuoja arba neteisiklingas slaptažodis");
                     }
                 }
                 else

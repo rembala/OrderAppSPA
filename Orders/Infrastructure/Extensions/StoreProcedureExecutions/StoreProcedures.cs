@@ -61,5 +61,10 @@ namespace Orders.Infrastructure.Extensions.StoreProcedureExecutions
                         new SqlParameter("@IsActive", IsActive)
                         )).ToList()[0];
         }
+
+        public int UserGet(string UserName)
+        {
+            return (Database.SqlQuery<int>("EXEC [web].[User.Get] @UserName", new SqlParameter("@UserName", UserName))).ToList()[0];
+        }
     }
 }

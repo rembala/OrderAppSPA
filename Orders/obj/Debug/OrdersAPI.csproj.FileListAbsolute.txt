@@ -46,5 +46,7 @@ C:\Users\ARTA\Desktop\Orders\Orders\bin\Autofac.xml
 C:\Users\ARTA\Desktop\Orders\Orders\bin\Autofac.Integration.WebApi.xml
 C:\Users\ARTA\Desktop\Orders\Orders\bin\AutoMapper.dll
 C:\Users\ARTA\Desktop\Orders\Orders\bin\AutoMapper.xml
-C:\Users\ARTA\Desktop\Orders\Orders\obj\Debug\Orders.GlobalVariables.resources
-C:\Users\ARTA\Desktop\Orders\Orders\obj\Debug\OrdersAPI.csproj.GenerateResource.Cache
+C:\Users\ARTA\Desktop\Orders\Orders\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ARTA\Desktop\Orders\Orders\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ARTA\Desktop\Orders\Orders\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ARTA\Desktop\Orders\Orders\bin\Microsoft.AspNet.Identity.EntityFramework.xml
