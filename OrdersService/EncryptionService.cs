@@ -1,10 +1,7 @@
-﻿using OrdersService.CustomAuthentication;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using OrdersService.CustomAuthentication;
 
 namespace OrdersService
 {
@@ -15,6 +12,8 @@ namespace OrdersService
             var data = new byte[0x10];
             using (var cryptoServiceProvider = new RNGCryptoServiceProvider())
             {
+
+
                 cryptoServiceProvider.GetBytes(data);
                 return Convert.ToBase64String(data);
             }
