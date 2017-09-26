@@ -1,14 +1,13 @@
-﻿using OrdersData.Infrastructure;
-using OrdersData.Repository;
-using OrdersEntities.Entities;
-using OrdersService.CustomAuthentication;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OrdersService.Extensions;
 using System.Security.Principal;
+using OrdersData.Infrastructure;
+using OrdersData.Repository;
+using OrdersEntities.Entities;
+using OrdersService.CustomAuthentication;
+using OrdersService.Extensions;
 
 namespace OrdersService
 {
@@ -19,6 +18,8 @@ namespace OrdersService
         private readonly IEntityBaseRepository<UserRole> _userRoleRepository;
         private readonly IEncryptionService _encryptionService;
         private readonly IUnitOfWork _unitOfWork;
+
+
 
         public MembershipService(IEntityBaseRepository<User> userRepository, IEntityBaseRepository<Role> roleRepository,
          IEntityBaseRepository<UserRole> userRoleRepository, IEncryptionService encryptionService, IUnitOfWork unitOfWork)
